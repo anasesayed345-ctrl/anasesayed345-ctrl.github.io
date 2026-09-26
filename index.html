@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <title>جروبات المحاضرات والسكاشن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#08111f; --surface:#0e1b2c; --surface-2:#12243a;
+      --text:#f7fbff; --muted:#9aacc0; --line:rgba(180,210,235,.15);
+      --blue:#65c7ff; --mint:#67e0c0; --shadow:0 24px 70px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse at 82% 8%,rgba(43,135,188,.22),transparent 34%),radial-gradient(ellipse at 10% 76%,rgba(25,96,115,.14),transparent 34%),linear-gradient(145deg,#08111f,#07101c 50%,#0a1726)}
+    body:after{content:"";position:fixed;z-index:-1;inset:0;opacity:.26;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.8) .7px,transparent .7px);background-size:92px 92px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
+    .page{width:min(1080px,calc(100% - 36px));margin:auto;padding:25px 0 18px}
+    .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:66px}
+    .logo{display:flex;align-items:center;gap:11px;font-size:.92rem;font-weight:700;color:#d8e7f4}
+    .logo-mark{position:relative;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--blue),#3777c8);box-shadow:0 8px 25px rgba(67,173,235,.28);transform:rotate(7deg)}
+    .logo-mark:before,.logo-mark:after{content:"";position:absolute;border:2px solid #071321;border-radius:50%}.logo-mark:before{inset:8px 5px;transform:rotate(35deg)}.logo-mark:after{inset:5px 8px;transform:rotate(-35deg)}
+    .top-note{color:var(--muted);font-size:.76rem;border:1px solid var(--line);border-radius:99px;padding:7px 13px;background:rgba(255,255,255,.035)}
+    .hero{display:grid;grid-template-columns:1fr;align-items:center;max-width:760px;margin:0 auto 64px;text-align:center}
+    .label{display:inline-flex;align-items:center;gap:8px;color:var(--mint);font-size:.78rem;font-weight:700;margin-bottom:18px}.label i{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+    h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.18;letter-spacing:-.045em;margin:0 0 17px;font-weight:800}h1 span{display:block;color:var(--blue)}
+    .intro{max-width:560px;color:var(--muted);line-height:2;font-size:1rem;margin:0 auto}
+    .hero:after{content:"";display:block;width:180px;height:3px;margin:28px auto 0;border-radius:99px;background:linear-gradient(90deg,transparent,var(--blue),var(--mint),transparent);box-shadow:0 0 22px rgba(101,199,255,.55)}
+    .content{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+    .panel{position:relative;padding:24px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(22,42,66,.88),rgba(11,24,40,.88));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden}
+    .panel:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(91,193,239,.11);filter:blur(12px);left:-65px;top:-80px}.panel>*{position:relative}
+    .panel.wide{grid-column:1/-1}
+    .heading{display:flex;align-items:center;gap:13px;margin-bottom:19px}.heading-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:#08111f;font-weight:800;background:linear-gradient(135deg,var(--blue),#a4e5ff);box-shadow:0 9px 25px rgba(80,188,239,.18)}
+    .panel h2{font-size:1.28rem;margin:0;font-weight:800}.panel .hint{font-size:.75rem;color:var(--muted);margin:2px 0 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.cards.two{grid-template-columns:repeat(2,1fr)}
+    .card{min-height:86px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:13px 15px;border-radius:16px;border:1px solid rgba(165,204,230,.14);background:rgba(255,255,255,.045);color:var(--text);text-decoration:none;transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease;position:relative;overflow:hidden}
+    a.card{border-color:rgba(103,224,192,.42);background:linear-gradient(145deg,rgba(28,128,104,.62),rgba(12,70,65,.72));box-shadow:inset 0 1px 0 rgba(206,255,239,.12),0 10px 22px rgba(4,48,40,.22)}
+    .card:after{content:"↗";position:absolute;left:12px;top:10px;color:#7191aa;font-size:.9rem;transition:.3s}.card strong{font-size:1.08rem;font-weight:700}.card small{font-size:.71rem;color:var(--muted)}
+    a.card:hover{transform:translateY(-5px);border-color:rgba(143,255,213,.9);background:linear-gradient(135deg,rgba(37,177,133,.78),rgba(12,92,77,.84));box-shadow:0 13px 26px rgba(0,0,0,.22),0 0 25px rgba(73,239,174,.25)}a.card:hover:after{color:#d9fff1;transform:translate(-3px,3px)}
+    a.card.flash{animation:flashColors .75s ease-out both}
+    .group{padding-top:19px;margin-top:19px;border-top:1px solid rgba(180,210,235,.1)}.group:first-child{padding-top:0;margin-top:0;border-top:0}.group-title{display:flex;align-items:center;gap:8px;font-size:.93rem;font-weight:700;margin-bottom:10px;color:#d6e7f3}.group-title b{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:rgba(103,224,192,.14);color:var(--mint);font-size:.76rem}
+    .card.off{opacity:1;cursor:not-allowed;border-color:rgba(255,91,91,.55);background:linear-gradient(135deg,rgba(137,31,43,.7),rgba(67,19,31,.72));box-shadow:inset 0 1px 0 rgba(255,170,170,.1),0 10px 22px rgba(68,5,18,.2)}.card.off:after{content:"×";color:#ff8e8e;font-size:1.15rem}.card.off small{color:#ffb0b0}.card.off small:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#ff6464;margin-left:5px;vertical-align:middle;box-shadow:0 0 8px #ff3e3e}
+    footer{text-align:center;padding:34px 0 6px;color:#71869d;font-size:.75rem}footer strong{color:#dceaf4;font-weight:700}
+    @keyframes flashColors{0%{background:linear-gradient(135deg,#ff3cac,#784ba0 45%,#2b86c5);border-color:#ffd166;box-shadow:0 0 0 rgba(255,72,174,0)}35%{background:linear-gradient(135deg,#00f5a0,#00d9f5 48%,#7b61ff);border-color:#fff;box-shadow:0 0 34px rgba(0,229,255,.8),0 0 68px rgba(255,61,178,.5)}100%{background:linear-gradient(145deg,rgba(63,145,194,.25),rgba(255,255,255,.05));border-color:rgba(165,204,230,.14);box-shadow:0 13px 26px rgba(0,0,0,.22)}}
+    @media(max-width:800px){.page{width:min(100% - 24px,620px);padding-top:18px}.top{margin-bottom:34px}.hero{margin-bottom:40px}.content{grid-template-columns:1fr;gap:14px}.panel.wide{grid-column:auto}.panel{padding:18px;border-radius:20px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.cards.two{grid-template-columns:repeat(2,1fr)}.card{min-height:78px;padding:11px 12px}.card strong{font-size:1rem}h1{font-size:clamp(2.45rem,12vw,4rem)}}
+    @media(max-width:390px){.cards,.cards.two{grid-template-columns:1fr}.top-note{font-size:.68rem}.logo{font-size:.78rem}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top"><div class="logo"><span class="logo-mark"></span><span>بوابة الجروبات</span></div><div class="top-note">المحاضرات والسكاشن</div></header>
+    <section class="hero">
+      <div><div class="label"><i></i> مكانك هنا</div><h1>اوصل لجروبك<br><span>بكل سهولة</span></h1><p class="intro">اختار جروب المحاضرة أو رقم السكشن الخاص بك، واضغط على البطاقة للانضمام إلى جروب الواتساب.</p></div>
+    </section>
+    <section class="content">
+      <div class="panel wide"><div class="heading"><div class="heading-icon">01</div><div><h2>جروبات المحاضرات</h2><p class="hint">الجروبات العامة للمحاضرات</p></div></div><div id="lectures" class="cards"></div></div>
+      <div class="panel wide"><div class="heading"><div class="heading-icon">02</div><div><h2>جروبات السكاشن</h2><p class="hint">اختار المجموعة ثم رقم السكشن</p></div></div><div id="app"></div></div>
+    </section>
+    <footer>by <strong>Anas Elsayed</strong></footer>
+  </main>
+<script>
+const LECTURES={
+  'جروب A العام':'https://chat.whatsapp.com/Fv9aDX1rMfiKbahPy24ANf',
+  'جروب B العام':'https://chat.whatsapp.com/HRXsGPVUZJqHLlzwfjeNn4',
+  'جروب C العام':'https://chat.whatsapp.com/FojWlp4NOZTFqHwdDYYx8x'
+};
+const SECTIONS={
+  A:{A1:'https://chat.whatsapp.com/InxNoQNmBcd1WV5X771EQo',A2:'',A3:'https://chat.whatsapp.com/KVTPbU8KvY1AFYUxd2XQ2J',A4:'https://chat.whatsapp.com/D6UywrW45O2CbflZmatezI?mode=gi_t',A5:'https://chat.whatsapp.com/LY80AIl5iGtJ9Np2HgqQ89',A6:'https://chat.whatsapp.com/CJl7hCPeAfuEV5HIMQnzPr?s=sw&p=i&mlu=4&ilr=4'},
+  B:{B1:'',B2:'https://chat.whatsapp.com/E92rifQS3nkGxhNEUAbVR7?s=sh&p=i&mlu=4&ilr=4',B3:'https://chat.whatsapp.com/IisdQcn6v9V5TKBkR2PMLN',B4:'https://chat.whatsapp.com/BuKfRh99Sg1B6gAm4e2Gd0?s=cl&p=i&mlu=4&ilr=4',B5:'https://chat.whatsapp.com/HmLXGWI8SXQEqHGfnRVILN',B6:'https://chat.whatsapp.com/ImQuymX1wg2F78A4t106ZR'},
+  C:{C1:'https://chat.whatsapp.com/DyezjUDnyAHE1Iwn8cayAC?s=sw&p=i&mlu=4&ilr=4',C2:'https://chat.whatsapp.com/BkhYgtmwQ6BCugSxcxDTNH',C3:'',C4:'https://chat.whatsapp.com/B81T3gORj0GIfQ5pESkD0F',C5:'https://chat.whatsapp.com/BYr7YHJnbSl0ut4OG5Rmoz?s=cl&p=a&mlu=4&ilr=4',C6:'https://chat.whatsapp.com/C1F1svDtsW9EwTFjdXbqw8'}
+};
+function card(name,url){const e=url?document.createElement('a'):document.createElement('div');e.className='card'+(url?'':' off');if(url){e.href=url;e.target='_blank';e.rel='noopener noreferrer'}else e.setAttribute('aria-disabled','true');e.innerHTML='<strong>'+name+'</strong><small>'+(url?'اضغط للانضمام':'غير متاح حاليًا')+'</small>';return e}
+const lectures=document.querySelector('#lectures');Object.entries(LECTURES).forEach(([n,u])=>lectures.appendChild(card(n,u)));
+const app=document.querySelector('#app');Object.entries(SECTIONS).forEach(([g,items])=>{const wrap=document.createElement('div');wrap.className='group';wrap.innerHTML='<div class="group-title"><b>'+g+'</b><span>مجموعة '+g+'</span></div><div class="cards two"></div>';const grid=wrap.querySelector('.cards');Object.entries(items).forEach(([n,u])=>grid.appendChild(card(n,u)));app.appendChild(wrap)});
+document.querySelectorAll('a.card').forEach(el=>el.addEventListener('click',()=>{el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}));
+</script>
+</body>
+</html>
